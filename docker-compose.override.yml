@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+  dotnet-docker-example:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionString=Server=sql.data;Database=master;User Id=sa;Password=Pass@word
+    ports:
+      - "5103:80"

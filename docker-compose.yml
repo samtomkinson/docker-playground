@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  dotnet-docker-example:
+    image: webatang/dotnet-docker-example
+    build:
+      context: ./src/dotnet-docker-example
+      dockerfile: Dockerfile
+    depends_on:
+      - sql.data
+  sql.data:
+    image: microsoft/mssql-server-linux
+    environment:
+      - SA_PASSWORD=Pass@word
+      - ACCEPT_EULA=Y
+    ports:
+      - "1433:1433"
